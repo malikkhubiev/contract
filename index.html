@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Our Shared Stance</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Manrope:wght@500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #e8efe8;
+      --bg-soft: #f3f7f3;
+      --ink: #1c2a22;
+      --muted: #5a6b60;
+      --line: #c5d4c8;
+      --card: rgba(255, 255, 255, 0.72);
+      --accent: #2f6b4f;
+      --accent-soft: #d7ebe0;
+      --shadow: 0 10px 30px rgba(28, 42, 34, 0.06);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      font-family: "Literata", Georgia, serif;
+      background:
+        radial-gradient(1200px 600px at 50% -10%, #f7fbf7 0%, transparent 55%),
+        linear-gradient(180deg, #dfe9e1 0%, var(--bg) 35%, #edf3ed 100%);
+      line-height: 1.65;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(12px);
+      background: rgba(243, 247, 243, 0.85);
+      border-bottom: 1px solid var(--line);
+      padding: 0.85rem 1rem;
+    }
+
+    .lang-switch {
+      display: flex;
+      justify-content: center;
+      gap: 0.4rem;
+    }
+
+    .lang-switch button {
+      appearance: none;
+      border: 1px solid var(--line);
+      background: var(--bg-soft);
+      color: var(--muted);
+      font-family: "Manrope", sans-serif;
+      font-weight: 600;
+      font-size: 0.85rem;
+      letter-spacing: 0.04em;
+      padding: 0.55rem 0.95rem;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: 0.18s ease;
+    }
+
+    .lang-switch button:hover {
+      color: var(--ink);
+      border-color: #9fb7a8;
+    }
+
+    .lang-switch button.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    main {
+      width: min(760px, calc(100% - 2rem));
+      margin: 0 auto;
+      padding: 2rem 0 4rem;
+    }
+
+    header.page-header {
+      text-align: center;
+      margin-bottom: 2.25rem;
+    }
+
+    header.page-header h1 {
+      font-family: "Manrope", sans-serif;
+      font-weight: 700;
+      font-size: clamp(1.55rem, 4vw, 2.1rem);
+      letter-spacing: -0.02em;
+      margin: 0 0 0.55rem;
+    }
+
+    header.page-header p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+
+    nav.toc {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.45rem;
+      margin-bottom: 2rem;
+    }
+
+    nav.toc a {
+      font-family: "Manrope", sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-decoration: none;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 0.4rem 0.7rem;
+      border-radius: 999px;
+    }
+
+    section {
+      margin-bottom: 2.1rem;
+    }
+
+    section h2 {
+      font-family: "Manrope", sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 0 0 0.9rem;
+      padding-bottom: 0.45rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    article {
+      background: var(--card);
+      border: 1px solid rgba(197, 212, 200, 0.8);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1rem 1.15rem 1.1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    article h3 {
+      font-family: "Manrope", sans-serif;
+      font-size: 1.02rem;
+      font-weight: 700;
+      margin: 0 0 0.35rem;
+      letter-spacing: -0.01em;
+    }
+
+    article p {
+      margin: 0;
+      color: #24362c;
+      font-size: 1.02rem;
+    }
+
+    .label {
+      display: inline-block;
+      font-family: "Manrope", sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.2rem;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 520px) {
+      article { padding: 0.9rem 0.95rem; }
+      article p { font-size: 0.98rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="lang-switch" role="group" aria-label="Language">
+      <button type="button" data-lang="en" class="active">EN</button>
+      <button type="button" data-lang="ru">RU</button>
+      <button type="button" data-lang="id">ID</button>
+    </div>
+  </div>
+
+  <main>
+    <header class="page-header">
+      <h1 id="title"></h1>
+      <p id="subtitle"></p>
+    </header>
+    <nav class="toc" id="toc"></nav>
+    <div id="content"></div>
+    <footer id="footer"></footer>
+  </main>
+
+  <script>
+    const DATA = {
+      en: {
+        title: "Our Shared Stance",
+        subtitle: "How we relate to life’s questions — briefly and clearly.",
+        footer: "Read calmly. Switch language above.",
+        q: "Question",
+        a: "Stance",
+        sections: [
+          {
+            id: "religion",
+            name: "Religion",
+            items: [
+              ["Foundation of life", "Islam is the axis. The goal is Firdaus together: husband, wife, children. Dua, prayer, fasting, Qur’an."],
+              ["Halal and haram", "We choose what brings us closer to Allah. If something is doubtful — we clarify and cut it out, not “everyone does it.”"],
+              ["Hijab", "Obligatory. Daily hijab is the norm. Real hijab means modesty and covering — not tight “fashion with a scarf.”"],
+              ["Niqab", "Obligatory. Protection of honor and closeness to Allah. Remove it only for real necessity and with the husband’s permission. No one may demand it off without need."],
+              ["Spiritual growth", "We grow together. The husband leads the family spiritually; the wife supports and strives herself. Istikhara and certainty before marriage are required."]
+            ]
+          },
+          {
+            id: "each-other",
+            name: "Toward each other",
+            items: [
+              ["Essence of the relationship", "A serious Islamic project: trust, respect, exclusivity, peace in the soul."],
+              ["Husband’s leadership", "The husband is the leader: he carries responsibility and makes final decisions. The wife follows because she trusts his intentions and wisdom. Her opinion interests him, and when it does, he consults. Sometimes she should not know about a decision. If she has a view, she tells him and expects to be heard. He is ready to decide without mandatory discussion. She accepted leadership, but wants her opinion truly heard — and no control for control’s sake."],
+              ["Obedience", "The wife does what the husband says, as long as it is not haram. Obedience from trust, not from fear."],
+              ["Exclusivity", "We are each other’s only ones. Flirting, interest, and “hope” from the opposite sex are not allowed."],
+              ["Jealousy", "Jealousy is part of love and responsibility. We give no reasons. We don’t play with jealousy or stockpile small jabs."],
+              ["Contact with the opposite sex", "Cold, short, to the point. No warm politeness “out of kindness.” Roulettes, private chats, any casual contact with the opposite sex — not allowed. Business talk must not leave the idea that the person is interesting to us."],
+              ["Privacy and social media", "Private life stays closed. We don’t display appearance, playfulness, or daily life in public. The wife’s beauty is for her husband and children. Photos and statuses that show “life outside” are removed."],
+              ["Secrets", "No secrets from each other. We share thoughts, feelings, plans. The husband may not report a decision or problem, because he must decide and the wife must trust."],
+              ["Attention and connection", "Time and attention are the main resource. We write when something is on our mind. We don’t disappear without status. We regularly say how the day and our state are. All free time is spent together. We are a family. No solitary walks or walks with girlfriends."],
+              ["Conflicts", "We talk, discuss, seek a solution. No blocking, disappearing, or emotional ultimatums. No insults, shouting, or physical harm. Problems — calmly and honestly."],
+              ["Mistakes and weaknesses", "We are not perfect. We admit faults, accept flaws, help each other grow. We don’t break a person over a mistake."],
+              ["Forms of address", "Warm pairs: My queen — My king; My princess — My prince; Wifey — Husband; Baby girl — Daddy; My lady — My man; Bidadariku — Sayang / Satriaku. Shared: darling, love, dear, destiny. Light forms like “babe” / “good boy” toward the man are not used — they lead to disrespect."],
+              ["The past", "We forget all exes. Other men / women are not discussed. If needed — only on a direct question from the partner, briefly and without embellishment."],
+              ["Honor and dignity", "The wife is queen / bidadari. The husband protects honor; the wife does not lower herself by talking to trash and giving them attention."]
+            ]
+          },
+          {
+            id: "family",
+            name: "Family",
+            items: [
+              ["Roles of husband and wife", "The husband provides, handles the outside, protects, repairs, builds. The wife is home, comfort, children, spiritual and household center. Both help each other."],
+              ["Children", "Children are a blessing and the main responsibility after Allah and marriage. We dream and prepare. The wife gives birth and raises; the husband provides, protects, and takes part in upbringing."],
+              ["Upbringing", "Conscious, with love and authority. We teach constantly, 24/7, in a playful way — interesting and involving. Boys and girls are raised differently. The father is a figure to whom empty “no” is not said."],
+              ["Pregnancy and the body after birth", "A shared zone of care. The husband supports; the wife protects her health. The body is an amanah — not an object of shame and not a toy for strangers’ eyes."],
+              ["Relatives", "We respect both families, get to know them, help in hardship. We keep boundaries: the couple’s family problems are solved together, not taken to the street. Emergency contacts of close ones stay at hand."],
+              ["The “third picture”", "There is his view, hers, and the families’. We don’t break apart under outside pressure; we process it together and explain where needed."],
+              ["Friends", "Friends are allowed; family comes first. Girlfriends are a women’s circle. Friends don’t interfere in the relationship and don’t replace the couple’s time."],
+              ["Warmth in the home", "At home — love, respect, and tenderness. Children grow where the father is the pillar and the mother is warmth and wisdom."]
+            ]
+          },
+          {
+            id: "daily",
+            name: "Daily life, health, growth",
+            items: [
+              ["Health", "Body and mind are an amanah. Sleep, food, sport, hygiene are required. We support each other — not “everyone on their own.”"],
+              ["Sleep and routine", "We go to bed earlier. Phone and blue light before sleep are the enemy. A short daytime nap can help. Routine is a shared task."],
+              ["Education and self-development", "We learn constantly. Russian for the wife is a priority. Knowledge, skills, and a clear mind prepare us for hard times."],
+              ["Hobbies", "We support growth: language, sport, useful skills. We don’t support what breaks modesty, boundaries, or the family’s priority."]
+            ]
+          },
+          {
+            id: "material",
+            name: "Material: money, work, home, safety",
+            items: [
+              ["Money", "The husband provides. Major decisions on money and assets are his. The wife may keep household accounts. First we cover family needs; surplus goes to helping people."],
+              ["Wife’s work and career", "Family matters more than career. Work is allowed if it doesn’t harm home and children and doesn’t require contact with men. Remote skills (English, teaching, cooking) are a good cushion. The wife’s work and any activity are with the husband’s permission."],
+              ["Husband’s work", "The husband works and builds. The goal is family stability, not status for status’s sake."],
+              ["Financial cushion", "We build resilience: skills, knowledge, passive income for a crisis. The wife must not be left helpless if something happens to the husband."],
+              ["Moving and place of life", "Plan: nikah in Indonesia → a short time together there → documents → Russia (Cherkessk), official registration. Indonesia is roots and a stage; the base of life is with the husband."],
+              ["Travel", "Good as shared memories and family impressions, but not more important than building a home and family."],
+              ["Safety and an unstable world", "The world is fragile. We prepare: knowledge, offline skills, health, money, soul. We protect each other."],
+              ["Charity", "When the family is fed — we widen the table, not the fence. We help without expecting return."],
+              ["Future", "One vector: marriage, children, Firdaus, stability. Steps — in sequence, in sha Allah."]
+            ]
+          }
+        ]
+      },
+      ru: {
+        title: "Наше общее отношение",
+        subtitle: "Как мы относимся к жизненным вопросам — кратко и ясно.",
+        footer: "Читай спокойно. Язык переключается сверху.",
+        q: "Вопрос",
+        a: "Отношение",
+        sections: [
+          {
+            id: "religion",
+            name: "Религия",
+            items: [
+              ["Основа жизни", "Ислам — ось. Цель — Фирдаус вместе: муж, жена, дети. Дуа, намаз, пост, Коран."],
+              ["Халяль и харам", "Выбираем то, что приближает к Аллаху. Если что-то сомнительно — уточняем и отсекаем, а не «все так делают»."],
+              ["Хиджаб", "Обязательно. Ежедневный хиджаб — норма. Настоящий хиджаб: скромность и закрытость, не обтягивающая «мода с платком»."],
+              ["Никаб", "Обязательно. Защита чести и приближение к Аллаху. Снимать — только при реальной необходимости и с разрешения мужа. Без нужды никто не вправе требовать снять."],
+              ["Духовный рост", "Растём вместе. Муж ведёт семью духовно; жена поддерживает и сама стремится. Истихара и уверенность перед браком — обязательны."]
+            ]
+          },
+          {
+            id: "each-other",
+            name: "Отношение друг к другу",
+            items: [
+              ["Суть отношений", "Серьёзный исламский проект: доверие, уважение, эксклюзивность, мир в душе."],
+              ["Лидерство мужа", "Муж — лидер: несёт ответственность, принимает окончательные решения. Жена следует, потому что доверяет его намерениям и мудрости. Мнение жены мужу интересно и, когда интересно, советуется. Иногда жена не должна знать о решении. Если у жены есть мнение, она говорит мужу и рассчитывает быть услышанной. Он готов решать без обязательного обсуждения. Она приняла лидерство, но хочет, чтобы её мнение реально слышали и не было контроля ради контроля."],
+              ["Послушание", "Жена делает то, что говорит муж, пока это не харам. Послушание из доверия, не из страха."],
+              ["Эксклюзивность", "Мы друг для друга — единственные. Флирт, интерес и «надежда» у противоположного пола недопустимы."],
+              ["Ревность", "Ревность — часть любви и ответственности. Не даём поводов. Не играем ревностью и не копим мелкие уколы."],
+              ["Общение с противоположным полом", "Холодно, кратко, по делу. Без тёплой вежливости «ради милости». Рулетки, личные чаты, любое общение с противоположным полом — недопустимо. Деловое общение не должно оставлять мысль, что человек нам интересен."],
+              ["Приватность и соцсети", "Личная жизнь закрыта. Не выставляем внешность, игривость и быт на публику. Красота жены — для мужа и детей. Фото и статусы, которые показывают «жизнь снаружи», удаляем."],
+              ["Тайны", "В отношениях друг от друга нет тайн. Делимся мыслями, чувствами, планами. Муж может не сообщить о решении или проблеме, потому что он должен принять решение, а жена должна довериться."],
+              ["Внимание и связь", "Время и внимание — главный ресурс. Пишем, когда что-то на уме. Не пропадаем без статуса. Регулярно говорим, как день и самочувствие. Проводим всё свободное время вместе. Мы — семья. Никаких прогулок в одиночестве или с подругами."],
+              ["Конфликты", "Говорим, обсуждаем, ищем решение. Не блокируем, не исчезаем, не ставим ультиматумы «на эмоциях». Без оскорблений, крика и физического вреда. Проблемы — спокойно и честно."],
+              ["Ошибки и слабости", "Не идеальны. Признаём промахи, принимаем недостатки, помогаем расти. Не ломаем человека за ошибку."],
+              ["Обращения", "Тёплые парные: My queen — My king; My princess — My prince; Wifey — Husband; Baby girl — Daddy; My lady — My man; Bidadariku — Sayang / Satriaku. Общие: darling, love, dear, destiny. Лёгкие формы вроде «babe» / «good boy» по отношению к мужчине — не используются: ведут к неуважению."],
+              ["Прошлое", "Забываем всех бывших. Других мужчин / женщин не обсуждаем. Если нужно — только по прямому вопросу партнёра, коротко и без украшений."],
+              ["Честь и достоинство", "Жена — queen / bidadari. Муж защищает честь; жена не унижает себя, общаясь с мусором и давая внимание."]
+            ]
+          },
+          {
+            id: "family",
+            name: "Семья",
+            items: [
+              ["Роли мужа и жены", "Муж обеспечивает, решает внешнее, защищает, чинит, строит. Жена — дом, уют, дети, духовный и бытовой центр. Оба помогают друг другу."],
+              ["Дети", "Дети — благословение и главная ответственность после Аллаха и брака. Мечтаем и готовимся. Жена рожает и воспитывает; муж обеспечивает, защищает и участвует в воспитании."],
+              ["Воспитание", "Осознанно, с любовью и авторитетом. Учим постоянно 24/7 в игровой форме, заинтересовывая, вовлекая. Различаем воспитание мальчика и девочки. Отец — фигура, которой не говорят пустое «нет»."],
+              ["Беременность и тело после родов", "Совместная зона заботы. Муж поддерживает; жена бережёт здоровье. Тело — аманат, не предмет стыда и не игрушка для чужих глаз."],
+              ["Родственники", "Уважаем обе семьи, знакомимся, помогаем в беде. Границы соблюдаем: семейные проблемы пары решаем вместе, не выносим на улицу. Экстренные контакты близких держим под рукой."],
+              ["«Третья картина»", "Есть взгляд его, её и семей. Не рвёмся из-за внешнего давления; обрабатываем вместе и объясняем, где нужно."],
+              ["Друзья", "Друзья допустимы, семья важнее. Подруги — женский круг. Друзья не вмешиваются в отношения и не заменяют время пары."],
+              ["Имена и тепло в семье", "В доме — любовь, уважение и ласка. Дети растут в атмосфере, где отец — опора, мать — тепло и мудрость."]
+            ]
+          },
+          {
+            id: "daily",
+            name: "Быт, здоровье, развитие",
+            items: [
+              ["Здоровье", "Тело и мозг — аманат. Сон, питание, спорт, гигиена — обязательны. Поддерживаем друг друга, а не «каждый сам»."],
+              ["Сон и режим", "Ложимся раньше. Телефон и синий свет перед сном — враг. Дневной сон короткий полезно. Режим — общая задача."],
+              ["Образование и саморазвитие", "Учимся постоянно. Русский для жены — приоритет. Знания, навыки и ясная голова — подготовка к трудным временам."],
+              ["Хобби", "Поддерживаем рост: язык, спорт, полезные навыки. Не поддерживаем то, что ломает скромность, границы или приоритет семьи."]
+            ]
+          },
+          {
+            id: "material",
+            name: "Материя: деньги, работа, дом, безопасность",
+            items: [
+              ["Деньги", "Муж обеспечивает. Крупные решения по деньгам и активам — его. Жена может вести бытовой учёт. Сначала закрываем нужды семьи, излишек — помощь людям."],
+              ["Работа и карьера жены", "Семья важнее карьеры. Работа допустима, если не мешает дому и детям и не требует общения с мужчинами. Удалённые навыки (английский, преподавание, кулинария) — хорошая подушка. Работа жены и любая деятельность с разрешения мужа."],
+              ["Работа мужа", "Муж работает и строит. Цель — стабильность семьи, а не статус ради статуса."],
+              ["Финансовая подушка", "Копим устойчивость: навыки, знания, пассивный доход на случай кризиса. Жена не должна остаться беспомощной, если с мужем что-то случится."],
+              ["Переезд и место жизни", "План: никах в Индонезии → короткое время вместе там → документы → Россия (Черкесск), официальная регистрация. Индонезия — корни и этап; база жизни — с мужем."],
+              ["Путешествия", "Хороши как общие воспоминания и семейные впечатления, но не важнее строительства дома и семьи."],
+              ["Безопасность и нестабильный мир", "Мир хрупкий. Готовимся: знания, offline-навыки, здоровье, деньги, душа. Защищаем друг друга."],
+              ["Благотворительность", "Когда семья сыта — расширяем стол, а не забор. Помогаем без ожидания отдачи."],
+              ["Будущее", "Один вектор: брак, дети, Фирдаус, устойчивость. Шаги — последовательно, ин ша Аллах."]
+            ]
+          }
+        ]
+      },
+      id: {
+        title: "Sikap Kita Bersama",
+        subtitle: "Bagaimana kita menyikapi soal-soal hidup — singkat dan jelas.",
+        footer: "Baca dengan tenang. Ganti bahasa di atas.",
+        q: "Pertanyaan",
+        a: "Sikap",
+        sections: [
+          {
+            id: "religion",
+            name: "Agama",
+            items: [
+              ["Dasar hidup", "Islam adalah poros. Tujuan: Firdaus bersama — suami, istri, anak-anak. Doa, salat, puasa, Qur’an."],
+              ["Halal dan haram", "Kami memilih yang mendekatkan kepada Allah. Jika meragukan — kami klarifikasi dan tinggalkan, bukan “semua orang melakukannya.”"],
+              ["Hijab", "Wajib. Hijab setiap hari adalah norma. Hijab yang benar: kesopanan dan menutup aurat — bukan “mode ketat dengan kerudung.”"],
+              ["Niqab", "Wajib. Melindungi kehormatan dan mendekatkan kepada Allah. Lepas hanya bila benar-benar perlu dan dengan izin suami. Tanpa kebutuhan, tidak ada yang berhak meminta dilepas."],
+              ["Pertumbuhan spiritual", "Kami tumbuh bersama. Suami memimpin keluarga secara spiritual; istri mendukung dan berusaha sendiri. Istikharah dan keyakinan sebelum menikah wajib."]
+            ]
+          },
+          {
+            id: "each-other",
+            name: "Sikap satu sama lain",
+            items: [
+              ["Inti hubungan", "Proyek Islam yang serius: kepercayaan, rasa hormat, eksklusivitas, ketenangan jiwa."],
+              ["Kepemimpinan suami", "Suami adalah pemimpin: bertanggung jawab dan mengambil keputusan akhir. Istri mengikuti karena percaya pada niat dan kebijaksanaannya. Pendapat istri menarik baginya, dan bila perlu ia bermusyawarah. Kadang istri tidak perlu tahu suatu keputusan. Jika istri punya pendapat, ia menyampaikannya dan berharap didengar. Ia siap memutus tanpa diskusi wajib. Ia menerima kepemimpinan, tetapi ingin pendapatnya benar-benar didengar — dan tanpa kontrol demi kontrol."],
+              ["Ketaatan", "Istri melakukan apa yang dikatakan suami selama itu bukan haram. Ketaatan dari kepercayaan, bukan dari rasa takut."],
+              ["Eksklusivitas", "Kami satu-satunya bagi satu sama lain. Flirting, ketertarikan, dan “harapan” dari lawan jenis tidak dibolehkan."],
+              ["Cemburu", "Cemburu adalah bagian dari cinta dan tanggung jawab. Kami tidak memberi alasan. Kami tidak bermain dengan cemburu atau menumpuk sindiran kecil."],
+              ["Interaksi dengan lawan jenis", "Dingin, singkat, to the point. Tanpa kesopanan hangat “demi kebaikan.” Roulette, chat pribadi, segala interaksi santai dengan lawan jenis — tidak boleh. Pembicaraan bisnis tidak boleh meninggalkan kesan bahwa orang itu menarik bagi kami."],
+              ["Privasi dan media sosial", "Kehidupan pribadi tertutup. Kami tidak memamerkan penampilan, kelucuan, atau kehidupan sehari-hari di publik. Kecantikan istri untuk suami dan anak-anak. Foto dan status yang menampilkan “kehidupan di luar” dihapus."],
+              ["Rahasia", "Tidak ada rahasia satu sama lain. Kami berbagi pikiran, perasaan, rencana. Suami boleh tidak memberitahu keputusan atau masalah, karena ia harus memutuskan dan istri harus percaya."],
+              ["Perhatian dan hubungan", "Waktu dan perhatian adalah sumber utama. Kami menulis bila ada yang di pikiran. Tidak menghilang tanpa status. Secara rutin menyampaikan bagaimana hari dan kondisi. Semua waktu luang dihabiskan bersama. Kami keluarga. Tidak ada jalan-jalan sendirian atau dengan teman perempuan."],
+              ["Konflik", "Kami bicara, membahas, mencari solusi. Tidak memblokir, menghilang, atau memberi ultimatum emosional. Tanpa penghinaan, teriakan, atau kekerasan fisik. Masalah — dengan tenang dan jujur."],
+              ["Kesalahan dan kelemahan", "Kami tidak sempurna. Mengakui kesalahan, menerima kekurangan, membantu tumbuh. Tidak menghancurkan orang karena satu kesalahan."],
+              ["Sapaan", "Pasangan hangat: My queen — My king; My princess — My prince; Wifey — Husband; Baby girl — Daddy; My lady — My man; Bidadariku — Sayang / Satriaku. Bersama: darling, love, dear, destiny. Bentuk ringan seperti “babe” / “good boy” kepada suami tidak dipakai — membawa ketidakhormatan."],
+              ["Masa lalu", "Kami melupakan semua mantan. Pria / wanita lain tidak dibahas. Jika perlu — hanya atas pertanyaan langsung pasangan, singkat dan tanpa hiasan."],
+              ["Kehormatan dan martabat", "Istri adalah queen / bidadari. Suami melindungi kehormatan; istri tidak merendahkan diri dengan berbicara kepada sampah dan memberi perhatian."]
+            ]
+          },
+          {
+            id: "family",
+            name: "Keluarga",
+            items: [
+              ["Peran suami dan istri", "Suami menafkahi, mengurus luar, melindungi, memperbaiki, membangun. Istri — rumah, kenyamanan, anak, pusat spiritual dan rumah tangga. Keduanya saling membantu."],
+              ["Anak-anak", "Anak adalah berkah dan tanggung jawab utama setelah Allah dan pernikahan. Kami bermimpi dan bersiap. Istri melahirkan dan mendidik; suami menafkahi, melindungi, dan ikut dalam pengasuhan."],
+              ["Pendidikan anak", "Sadar, dengan cinta dan otoritas. Mengajar terus-menerus 24/7 secara menyenangkan — menarik dan melibatkan. Laki-laki dan perempuan dididik berbeda. Ayah adalah sosok yang tidak diberi “tidak” kosong."],
+              ["Kehamilan dan tubuh setelah melahirkan", "Zona perawatan bersama. Suami mendukung; istri menjaga kesehatan. Tubuh adalah amanah — bukan objek malu dan bukan mainan untuk mata orang lain."],
+              ["Kerabat", "Kami menghormati kedua keluarga, saling mengenal, membantu saat kesulitan. Batas dijaga: masalah keluarga pasangan diselesaikan bersama, tidak dibawa ke jalan. Kontak darurat kerabat dekat selalu siap."],
+              ["“Gambar ketiga”", "Ada pandangan dia, dia, dan keluarga. Kami tidak retak karena tekanan luar; kami olah bersama dan jelaskan bila perlu."],
+              ["Teman", "Teman boleh; keluarga lebih penting. Teman perempuan adalah lingkaran wanita. Teman tidak ikut campur hubungan dan tidak mengganti waktu pasangan."],
+              ["Kehangatan di rumah", "Di rumah — cinta, rasa hormat, dan kelembutan. Anak tumbuh di mana ayah adalah tiang dan ibu adalah kehangatan serta kebijaksanaan."]
+            ]
+          },
+          {
+            id: "daily",
+            name: "Kehidupan sehari-hari, kesehatan, pertumbuhan",
+            items: [
+              ["Kesehatan", "Tubuh dan otak adalah amanah. Tidur, makan, olahraga, kebersihan wajib. Kami saling mendukung — bukan “masing-masing sendiri.”"],
+              ["Tidur dan rutinitas", "Tidur lebih awal. Telepon dan cahaya biru sebelum tidur adalah musuh. Tidur siang singkat bisa bermanfaat. Rutinitas adalah tugas bersama."],
+              ["Pendidikan dan pengembangan diri", "Kami belajar terus. Bahasa Rusia untuk istri adalah prioritas. Pengetahuan, keterampilan, dan pikiran jernih menyiapkan masa sulit."],
+              ["Hobi", "Kami mendukung pertumbuhan: bahasa, olahraga, keterampilan berguna. Tidak mendukung yang merusak kesopanan, batas, atau prioritas keluarga."]
+            ]
+          },
+          {
+            id: "material",
+            name: "Materi: uang, kerja, rumah, keamanan",
+            items: [
+              ["Uang", "Suami menafkahi. Keputusan besar soal uang dan aset ada padanya. Istri boleh mengelola catatan rumah tangga. Dulu kebutuhan keluarga; sisanya membantu orang."],
+              ["Kerja dan karier istri", "Keluarga lebih penting dari karier. Kerja boleh jika tidak mengganggu rumah dan anak serta tidak memerlukan interaksi dengan pria. Keterampilan jarak jauh (bahasa Inggris, mengajar, memasak) adalah bantalan baik. Kerja istri dan segala aktivitas dengan izin suami."],
+              ["Kerja suami", "Suami bekerja dan membangun. Tujuan: stabilitas keluarga, bukan status demi status."],
+              ["Bantalan keuangan", "Kami menabung ketahanan: keterampilan, pengetahuan, pendapatan pasif untuk krisis. Istri tidak boleh tak berdaya jika sesuatu terjadi pada suami."],
+              ["Pindah dan tempat hidup", "Rencana: nikah di Indonesia → waktu singkat bersama di sana → dokumen → Rusia (Cherkessk), registrasi resmi. Indonesia adalah akar dan tahap; basis hidup bersama suami."],
+              ["Perjalanan", "Baik sebagai kenangan bersama dan kesan keluarga, tetapi tidak lebih penting dari membangun rumah dan keluarga."],
+              ["Keamanan dan dunia yang tidak stabil", "Dunia rapuh. Kami bersiap: pengetahuan, keterampilan offline, kesehatan, uang, jiwa. Kami saling melindungi."],
+              ["Sedekah", "Ketika keluarga kenyang — kami melebarkan meja, bukan pagar. Membantu tanpa mengharap balasan."],
+              ["Masa depan", "Satu arah: pernikahan, anak, Firdaus, ketahanan. Langkah demi langkah, in sha Allah."]
+            ]
+          }
+        ]
+      }
+    };
+
+    const titleEl = document.getElementById("title");
+    const subtitleEl = document.getElementById("subtitle");
+    const tocEl = document.getElementById("toc");
+    const contentEl = document.getElementById("content");
+    const footerEl = document.getElementById("footer");
+    const buttons = document.querySelectorAll(".lang-switch button");
+
+    function render(lang) {
+      const pack = DATA[lang];
+      document.documentElement.lang = lang;
+      document.title = pack.title;
+      titleEl.textContent = pack.title;
+      subtitleEl.textContent = pack.subtitle;
+      footerEl.textContent = pack.footer;
+
+      tocEl.innerHTML = pack.sections
+        .map((s) => `<a href="#${s.id}">${s.name}</a>`)
+        .join("");
+
+      contentEl.innerHTML = pack.sections
+        .map((section) => {
+          const articles = section.items
+            .map(
+              ([q, a]) => `
+            <article>
+              <div class="label">${pack.q}</div>
+              <h3>${q}</h3>
+              <div class="label">${pack.a}</div>
+              <p>${a}</p>
+            </article>`
+            )
+            .join("");
+          return `<section id="${section.id}"><h2>${section.name}</h2>${articles}</section>`;
+        })
+        .join("");
+
+      buttons.forEach((btn) => {
+        btn.classList.toggle("active", btn.dataset.lang === lang);
+      });
+
+      try {
+        localStorage.setItem("stance-lang", lang);
+      } catch (_) {}
+    }
+
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => render(btn.dataset.lang));
+    });
+
+    let start = "en";
+    try {
+      const saved = localStorage.getItem("stance-lang");
+      if (saved && DATA[saved]) start = saved;
+    } catch (_) {}
+    render(start);
+  </script>
+</body>
+</html>
